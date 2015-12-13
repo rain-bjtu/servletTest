@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="servlet-test" default="deploy" basedir=".">
+
+	<property name="pro-dir" value="${basedir}" />
+	<property name="src-mdir" value="${pro-dir}/src/main/java" />
+
+	<property name="build-rdir" value="${pro-dir}/build" />
+	<property name="build-mdir" value="${build-rdir}/src/main/java" />
+
+	<property name="libs-dir" value="${pro-dir}/libs" />
+
+	<property name="webapps-dir" value="${pro-dir}/src/main/webapps" />
+	<property name="html-dir" value="${webapps-dir}/ROOT" />
+	<property name="web.xml-location" value="${webapps-dir}/ROOT/WEB-INF" />
+
+	<property name="tomcat-webapps" value="/opt/app/apache-tomcat-8.0.30/webapps" />
+	<property name="tomcat-html" value="${tomcat-webapps}/ROOT" />
+	<property name="tomcat-web-inf" value="${tomcat-html}/WEB-INF" />
+	<property name="tomcat-classes" value="${tomcat-web-inf}/classes" />
+
+	<property name="test-dir" value="/home/rain/java-test" />
+
+	<target name="test-ant">
+		<delete>
+			<fileset dir="${test-dir}">
+				<include name="*.class" />
+			</fileset>
+		</delete>
+	</target>
+
+
+	<path id="libs">
+		<fileset id="${libs-dir}" dir=".">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+
+	<target name="clean-build">
+		<delete dir="${build-rdir}" />
+	</target>
+
+	<target name="compile-main" depends="clean-build">
+		<mkdir dir="${build-mdir}" />
+		<javac srcdir="${src-mdir}" destdir="${build-mdir}" includeAntRuntime="false">
+			<classpath refid="libs" />
+		</javac>
+	</target>
+
+	<target name="clean-deploy">
+		<delete>
+			<fileset dir="${tomcat-html}">
+				<include name="*.html" />
+				<exclude name="*.png" />
+				<exclude name="*.gif" />
+				<exclude name="*.xml" />
+				<exclude name="*.svg" />
+				<exclude name="*.css" />
+				<exclude name="*.jsp" />
+				<exclude name="*.txt" />
+				<exclude name="*.ico" />
+			</fileset>
+		</delete>
+		<delete>
+			<fileset dir="${tomcat-web-inf}">
+				<include name="web.xml" />
+			</fileset>
+		</delete>
+		<delete dir="${tomcat-classes}" />
+	</target>
+
+	<target name="deploy" depends="compile-main, clean-deploy">
+		<copy file="${web.xml-location}/web.xml" todir="${tomcat-web-inf}" />
+		<copy todir="${tomcat-html}">
+			<fileset dir="${html-dir}">
+				<include name="*.html" />
+			</fileset>
+		</copy>
+		<mkdir dir="${tomcat-classes}" />
+		<copydir dest="${tomcat-classes}" src="${build-mdir}" />
+	</target>
+</project>
