@@ -26,7 +26,6 @@ public class UploadServlet extends HttpServlet {
 
 	public void init() {
 		filePath = getServletContext().getInitParameter("file-upload");
-		System.out.println("-----------------------------------");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -45,15 +44,15 @@ public class UploadServlet extends HttpServlet {
 			out.println("</html>");
 			return;
 		}
-		System.out.println("=====================================");
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		factory.setSizeThreshold(maxMemSize);
 		// Location to save data that is larger than maxMemSize.
 		factory.setRepository(new File("/home/rain/Downloads"));
 
 		ServletFileUpload upload = new ServletFileUpload(factory);
+
+		// Set max size of uploaded file. If larger than this size, it will be failed
 		upload.setSizeMax(maxFileSize);
-		System.out.println("++++++++++++++++++++++++++++++++++++");
 		try {
 			List<FileItem> fileItems = upload.parseRequest(request);
 
