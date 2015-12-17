@@ -20,7 +20,7 @@ public class HelloWorld extends HttpServlet {
 
 	public void init() throws ServletException {
 		// necessary init
-		message = "Hello World";
+		message = "Hello World 你好";
 	}
 
 	/**
@@ -31,11 +31,12 @@ public class HelloWorld extends HttpServlet {
 			throws ServletException, IOException {
 		// response content
 		response.setContentType("text/html");
+		response.setHeader("Content-Language", "zh-CN");
 
 		// real logical
 		PrintWriter out = response.getWriter();
 		out.println("<h1>" + message + "</h1>");
-		throw new ServletException();
+//		throw new ServletException();
 	}
 
 	public void destroy() {

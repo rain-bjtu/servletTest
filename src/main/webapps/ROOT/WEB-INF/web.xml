@@ -46,26 +46,26 @@
 		<servlet-name>HelloForm</servlet-name>
 		<url-pattern>/helloform</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-        <servlet-name>AddCookie</servlet-name>
-        <servlet-class>com.rain.svlt.test.AddCookie</servlet-class>
-    </servlet>
+		<servlet-name>AddCookie</servlet-name>
+		<servlet-class>com.rain.svlt.test.AddCookie</servlet-class>
+	</servlet>
 
-    <servlet-mapping>
-        <servlet-name>AddCookie</servlet-name>
-        <url-pattern>/addcookie</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>ReadCookies</servlet-name>
-        <servlet-class>com.rain.svlt.test.ReadCookies</servlet-class>
-    </servlet>
+	<servlet-mapping>
+		<servlet-name>AddCookie</servlet-name>
+		<url-pattern>/addcookie</url-pattern>
+	</servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>ReadCookies</servlet-name>
-        <url-pattern>/readcookies</url-pattern>
-    </servlet-mapping>
+	<servlet>
+		<servlet-name>ReadCookies</servlet-name>
+		<servlet-class>com.rain.svlt.test.ReadCookies</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ReadCookies</servlet-name>
+		<url-pattern>/readcookies</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>CheckBox</servlet-name>
@@ -96,25 +96,45 @@
 		<servlet-name>ShowError</servlet-name>
 		<url-pattern>/showerror</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-        <servlet-name>SessionTrack</servlet-name>
-        <servlet-class>com.rain.svlt.test.SessionTrack</servlet-class>
+		<servlet-name>SessionTrack</servlet-name>
+		<servlet-class>com.rain.svlt.test.SessionTrack</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SessionTrack</servlet-name>
+		<url-pattern>/sessiontrack</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UploadServlet</servlet-name>
+		<servlet-class>com.rain.svlt.test.UploadServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/uploadservlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DatabaseAccess</servlet-name>
+		<servlet-class>com.rain.svlt.test.DatabaseAccess</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DatabaseAccess</servlet-name>
+		<url-pattern>/database</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+        <servlet-name>PageRedirect</servlet-name>
+        <servlet-class>com.rain.svlt.test.PageRedirect</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SessionTrack</servlet-name>
-        <url-pattern>/sessiontrack</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>UploadServlet</servlet-name>
-        <servlet-class>com.rain.svlt.test.UploadServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>UploadServlet</servlet-name>
-        <url-pattern>/uploadservlet</url-pattern>
+        <servlet-name>PageRedirect</servlet-name>
+        <url-pattern>/redirect</url-pattern>
     </servlet-mapping>
 
 	<filter>
